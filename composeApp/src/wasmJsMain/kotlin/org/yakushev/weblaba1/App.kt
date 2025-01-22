@@ -20,9 +20,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.resources.painterResource
 import org.yakushev.weblaba1.components.TextCaption
 import org.yakushev.weblaba1.components.TextHyperLink
+import org.yakushev.weblaba1.navigation.SetupNavHost
 import weblaba1.composeapp.generated.resources.Res
 import weblaba1.composeapp.generated.resources.compose_multiplatform
 
@@ -30,38 +32,10 @@ import weblaba1.composeapp.generated.resources.compose_multiplatform
 @Composable
 fun App() {
     MaterialTheme {
-        Scaffold(modifier = Modifier.fillMaxSize(),
-            topBar = {
-                TopAppBar(
-                    title = {
-                        Text(
-                            modifier = Modifier
-                                .padding(start = 16.dp),
-                            text = "Yakushev",
-                        )
-                    },
-                    actions = {
-//                        Text(
-//                            modifier = Modifier
-//                                .height(IntrinsicSize.Max)
-//                                .clickable(onClick = viewModel::onClearClicked)
-//                                .padding(end = 24.dp, start = 24.dp),
-//                            text = "Очистить",
-//                            color = MaterialTheme.colorScheme.primary,
-//                        )
-                    }
-                )
-            }
-        ) { innerPadding ->
-            Column(
-                modifier = Modifier.padding(innerPadding).padding(horizontal = 24.dp),
-            ) {
-                TextHyperLink(text = "telegram", url = "https://t.me/yakkshv")
-                TextHyperLink(text = "tiktok", url = "https://tiktok.com/@yakkusshev")
-                TextHyperLink(text = "instagram", url = "https://instagram.com/yakkusshev")
-                TextHyperLink(text = "youtube", url = "https://www.youtube.com/@yakusshev")
-            }
-        }
+        val navController = rememberNavController()
+        SetupNavHost(
+            navController = navController,
+        )
     }
 }
 

@@ -1,9 +1,15 @@
 package org.yakushev.weblaba1.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
@@ -12,6 +18,8 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 @Composable
 fun TextCaption(
@@ -56,49 +64,30 @@ fun TextHyperLink(
     )
 }
 
-//@Composable
-//fun Operation(
-//    operationUiModel: OperationUiModel,
-//    navController: NavHostController,
-//) {
-//    Row(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(vertical = 4.dp, horizontal = 16.dp)
-//            .background(
-//                color = operationUiModel.type.getBackground(),
-//                shape = RoundedCornerShape(size = 16.dp),
-//            )
-//            .clickable {
-//                if (operationUiModel.type == AccountEnum.Income || operationUiModel.type == AccountEnum.Expense) {
-//                    navController.navigate(route = "${Routes.AddOperation.destination}/${operationUiModel.id}")
-//                }
-//            },
-//    ) {
-//        TextCaption(
-//            modifier = Modifier
-//                .padding(16.dp)
-//                .align(Alignment.CenterVertically)
-//                .weight(.5f),
-//            text = operationUiModel.name,
-//            color = operationUiModel.type.getTextColor(),
-//            textAlign = TextAlign.Start,
-//        )
-//        if (operationUiModel.type == AccountEnum.Income || operationUiModel.type == AccountEnum.Expense) {
-//            TextCaption(
-//                modifier = Modifier.padding(16.dp).weight(.2f),
-//                text = operationUiModel.percent,
-//                color = operationUiModel.type.getTextColor(),
-//                textAlign = TextAlign.Start,
-//            )
-//        }
-//        if (operationUiModel.amount != 0) {
-//            TextCaption(
-//                modifier = Modifier.padding(16.dp).weight(.25f),
-//                text = operationUiModel.amount.toString(),
-//                color = operationUiModel.type.getTextColor(),
-//                textAlign = TextAlign.End,
-//            )
-//        }
-//    }
-//}
+@Composable
+fun TextRow(
+    name: String,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(
+                color = MaterialTheme.colorScheme.primaryContainer,
+                shape = RoundedCornerShape(size = 16.dp),
+            )
+            .clickable {
+                onClick()
+            },
+    ) {
+        TextCaption(
+            modifier = Modifier
+                .padding(16.dp)
+                .align(Alignment.CenterVertically)
+                .weight(.5f),
+            text = name,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            textAlign = TextAlign.Start,
+        )
+    }
+}
