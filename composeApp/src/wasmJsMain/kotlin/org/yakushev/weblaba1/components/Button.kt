@@ -12,6 +12,27 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 
 @Composable
+fun PrimaryButton(
+    modifier: Modifier = Modifier,
+    text: String,
+    contentColor: Color = Color.Unspecified,
+    onClick: () -> Unit = {},
+) {
+    Button(
+        modifier = modifier,
+        onClick = onClick,
+    ) {
+        Text(
+            text = text,
+            style = TextStyle(
+                fontSize = TextUnit(value = 16f, type = TextUnitType.Sp),
+                fontWeight = FontWeight.Bold,
+            )
+        )
+    }
+}
+
+@Composable
 fun TertiaryButton(
     modifier: Modifier = Modifier,
     textRes: String,

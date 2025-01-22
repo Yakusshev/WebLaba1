@@ -16,10 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import org.yakushev.weblaba1.components.TextHyperLink
+import org.yakushev.weblaba1.components.TextRow
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun VisitCard(navController: NavHostController) {
+fun Laba3(navController: NavHostController) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -28,7 +29,7 @@ fun VisitCard(navController: NavHostController) {
                     Text(
                         modifier = Modifier
                             .padding(start = 16.dp),
-                        text = "Yakushev.VisitCard",
+                        text = "Yakushev.Laba3",
                     )
                 },
                 navigationIcon = {
@@ -42,10 +43,7 @@ fun VisitCard(navController: NavHostController) {
         Column(
             modifier = Modifier.padding(innerPadding).padding(horizontal = 24.dp),
         ) {
-            TextHyperLink(text = "telegram", url = "https://t.me/yakkshv")
-            TextHyperLink(text = "tiktok", url = "https://tiktok.com/@yakkusshev")
-            TextHyperLink(text = "instagram", url = "https://instagram.com/yakkusshev")
-            TextHyperLink(text = "youtube", url = "https://www.youtube.com/@yakusshev")
+            TextRow(text = "At this time this page is not available. Please, come back later.") {}
         }
     }
 }

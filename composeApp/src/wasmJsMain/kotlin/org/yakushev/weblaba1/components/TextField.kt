@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun AddRowTextField(
+fun RegistrationTextField(
     placeholder: String,
     value: String,
     supportingText: String,

@@ -4,12 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -33,7 +28,7 @@ fun MainMenu(
                     Text(
                         modifier = Modifier
                             .padding(start = 16.dp),
-                        text = "Yakushev.MainMenu",
+                        text = "Yakushev",
                     )
                 },
             )
@@ -43,9 +38,9 @@ fun MainMenu(
             modifier = Modifier.padding(innerPadding).padding(horizontal = 24.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            TextRow(name = "Visit Card (Laba 1)") { navController.navigate(Route.VISIT_CARD) }
-            TextRow(name = "Registration (Laba 2)") { navController.navigate(Route.REGISTRATION) }
-            TextRow(name = "Laba 3") { navController.navigate(Route.LABA3) }
+            TextRow(text = "Visit Card (Laba 1)") { navController.navigate(Route.VISIT_CARD) }
+            TextRow(text = "Registration (Laba 2)") { navController.navigate(Route.REGISTRATION) }
+            TextRow(text = "Laba 3") { navController.navigate(Route.LABA3) }
         }
     }
 }
