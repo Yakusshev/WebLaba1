@@ -60,7 +60,7 @@ fun Asd() {
 
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
         Button(onClick = { showContent = !showContent }) {
-            Text("Click me!")
+            Text("click me!")
         }
         AnimatedVisibility(showContent) {
             val greeting = remember { Greeting().greet() }
