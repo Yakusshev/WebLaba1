@@ -2,14 +2,22 @@ package org.yakushev.weblaba1
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 
 import weblaba1.composeapp.generated.resources.Res
@@ -18,17 +26,51 @@ import weblaba1.composeapp.generated.resources.compose_multiplatform
 @Composable
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+        Scaffold(modifier = Modifier.fillMaxSize(),
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            modifier = Modifier
+                                .padding(start = 16.dp),
+                            text = "Yakushev",
+                        )
+                    },
+                    actions = {
+//                        Text(
+//                            modifier = Modifier
+//                                .height(IntrinsicSize.Max)
+//                                .clickable(onClick = viewModel::onClearClicked)
+//                                .padding(end = 24.dp, start = 24.dp),
+//                            text = "Очистить",
+//                            color = MaterialTheme.colorScheme.primary,
+//                        )
+                    }
+                )
             }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
+        ) { innerPadding ->
+            Column(
+                modifier = Modifier.padding(innerPadding),
+            ) {
+
+            }
+        }
+    }
+}
+
+@Composable
+fun Asd() {
+    var showContent by remember { mutableStateOf(false) }
+
+    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Button(onClick = { showContent = !showContent }) {
+            Text("Click me!")
+        }
+        AnimatedVisibility(showContent) {
+            val greeting = remember { Greeting().greet() }
+            Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(painterResource(Res.drawable.compose_multiplatform), null)
+                Text("Compose: $greeting")
             }
         }
     }
