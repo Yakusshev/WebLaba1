@@ -2,59 +2,55 @@ package org.yakushev.weblaba1
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-
 import weblaba1.composeapp.generated.resources.Res
 import weblaba1.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 fun App() {
     MaterialTheme {
-        Scaffold(modifier = Modifier.fillMaxSize(),
-            topBar = {
-                TopAppBar(
-                    title = {
-                        Text(
-                            modifier = Modifier
-                                .padding(start = 16.dp),
-                            text = "Yakushev",
-                        )
-                    },
-                    actions = {
+        Asd()
+//        Scaffold(modifier = Modifier.fillMaxSize(),
+//            topBar = {
+//                TopAppBar(
+//                    title = {
 //                        Text(
 //                            modifier = Modifier
-//                                .height(IntrinsicSize.Max)
-//                                .clickable(onClick = viewModel::onClearClicked)
-//                                .padding(end = 24.dp, start = 24.dp),
-//                            text = "Очистить",
-//                            color = MaterialTheme.colorScheme.primary,
+//                                .padding(start = 16.dp),
+//                            text = "Yakushev",
 //                        )
-                    }
-                )
-            }
-        ) { innerPadding ->
-            Column(
-                modifier = Modifier.padding(innerPadding),
-            ) {
-
-            }
-        }
+//                    },
+//                    actions = {
+////                        Text(
+////                            modifier = Modifier
+////                                .height(IntrinsicSize.Max)
+////                                .clickable(onClick = viewModel::onClearClicked)
+////                                .padding(end = 24.dp, start = 24.dp),
+////                            text = "Очистить",
+////                            color = MaterialTheme.colorScheme.primary,
+////                        )
+//                    }
+//                )
+//            }
+//        ) { innerPadding ->
+//            Column(
+//                modifier = Modifier.padding(innerPadding),
+//            ) {
+//
+//            }
+//        }
     }
 }
 
