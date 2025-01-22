@@ -1,13 +1,9 @@
 package org.yakushev.weblaba1.screen
 
-import androidx.compose.runtime.State
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -46,11 +42,24 @@ class RegistrationViewModel : ViewModel() {
         var error = false
         state.update { list ->
             list.map { field ->
-                if (field.value.isNotBlank() && field.value.length > 3) {
-                    field.copy(supportingText = "")
-                } else {
-                    error = true
-                    field.copy(supportingText = "This field must contain at least 4 characters")
+                when {
+                    field.enum == RegistrationFieldEnum.PHONE
+                        && field.value.length >= 11
+                        && field.value.all { it.isDigit() } -> field.copy(supportingText = "")
+                    field.enum == RegistrationFieldEnum.PHONE
+                        && field.value.length >= 11 -> {
+                        error = true
+                        field.copy(supportingText = "This field must contain only digits")
+                    }
+                    field.enum == RegistrationFieldEnum.PHONE -> {
+                        error = true
+                        field.copy(supportingText = "This field must contain at least 11 digits")
+                    }
+                    field.value.isNotBlank() && field.value.length > 3 -> field.copy(supportingText = "")
+                    else -> {
+                        error = true
+                        field.copy(supportingText = "This field must contain at least 4 characters")
+                    }
                 }
             }
         }
